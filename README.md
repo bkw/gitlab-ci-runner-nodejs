@@ -1,4 +1,4 @@
-# gitlab-ri-runner-nodejs
+# gitlab-ci-runner-nodejs
 
 This is docker image based on the Dockerfile provided by gitlabhq. See https://github.com/gitlabhq/gitlab-ci-runner/blob/master/Dockerfile by Sytse Sijbrandij <sytse@gitlab.com> for the original.
 
