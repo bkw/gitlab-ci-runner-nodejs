@@ -28,9 +28,9 @@ RUN apt-get update -y
 RUN apt-get install -y wget curl gcc libxml2-dev libxslt-dev libcurl4-openssl-dev libreadline6-dev libc6-dev libssl-dev make build-essential zlib1g-dev openssh-server git-core libyaml-dev postfix libicu-dev
 
 # Download Ruby and compile it
-RUN mkdir /tmp/ruby-src && cd /tmp/ruby-src && curl -s http://ftp.ruby-lang.org/pub/ruby/ruby-1.9-stable.tar.bz2 | tar xj --strip-components=1
-RUN cd /tmp/ruby-src && ./configure --disable-install-rdoc && make && make install
-RUN rm -rf /tmp/ruby-src
+RUN mkdir /tmp/ruby && cd /tmp/ruby && curl -s http://ftp.ruby-lang.org/pub/ruby/ruby-2.0-stable.tar.bz2 | tar xj --strip-components=1
+RUN cd /tmp/ruby && ./configure --disable-install-rdoc && make && make install
+RUN rm -rf /tmp/ruby
 
 # Fix upstart under a virtual host https://github.com/dotcloud/docker/issues/1024
 RUN dpkg-divert --local --rename --add /sbin/initctl
