@@ -54,6 +54,9 @@ RUN mkdir /gitlab-ci-runner && cd /gitlab-ci-runner && curl -sL https://github.c
 # Install the gems for the runner
 RUN cd /gitlab-ci-runner && gem install bundler && bundle install
 
+# Install some usefull gems for web development
+RUN gem install compass sass
+
 # Download nodejs and compile it
 RUN mkdir /tmp/node && cd /tmp/node && curl -s http://nodejs.org/dist/node-latest.tar.gz | tar xz --strip-components=1
 RUN cd /tmp/node  && ./configure && make && make install
