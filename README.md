@@ -7,7 +7,7 @@ Differences from the original:
 - no mysql
 - no postgres
 - no redis
-- current stable node.js with npm, phantom.js and grunt-cli
+- current stable node.js with npm, phantom.js, grunt-cli and bower
 
 # Installation
 
