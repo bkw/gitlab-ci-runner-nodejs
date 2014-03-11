@@ -55,9 +55,9 @@ RUN mkdir /gitlab-ci-runner && cd /gitlab-ci-runner && curl -sL https://github.c
 RUN cd /gitlab-ci-runner && gem install bundler && bundle install
 
 # Download nodejs and compile it
-RUN mkdir /tmp/node-src && cd /tmp/node-src && curl -s http://nodejs.org/dist/node-latest.tar.gz | tar xz --strip-components=1
-RUN cd /tmp/node-src  && ./configure && make && make install
-RUN rm -rf /tmp/node-src
+RUN mkdir /tmp/node && cd /tmp/node && curl -s http://nodejs.org/dist/node-latest.tar.gz | tar xz --strip-components=1
+RUN cd /tmp/node  && ./configure && make && make install
+RUN rm -rf /tmp/node
 
 # update npm and install some basics
 RUN npm update -g npm
