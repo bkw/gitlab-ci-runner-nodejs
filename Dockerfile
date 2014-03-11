@@ -32,6 +32,9 @@ RUN mkdir /tmp/ruby && cd /tmp/ruby && curl -s http://ftp.ruby-lang.org/pub/ruby
 RUN cd /tmp/ruby && ./configure --disable-install-rdoc && make && make install
 RUN rm -rf /tmp/ruby
 
+# don't install ruby rdocs or ri:
+RUN echo "gem: --no-rdoc --no-ri" >> /usr/local/etc/gemrc
+
 # Fix upstart under a virtual host https://github.com/dotcloud/docker/issues/1024
 RUN dpkg-divert --local --rename --add /sbin/initctl
 RUN ln -s /bin/true /sbin/initctl
