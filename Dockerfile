@@ -61,8 +61,7 @@ RUN rm -rf /tmp/node-src
 
 # update npm and install some basics
 RUN npm update -g npm
-RUN npm install -g phantomjs
-RUN npm install -g grunt-cli
+RUN npm install -g phantomjs grunt grunt-cli
 
 # When the image is started add the remote server key, install the runner and run it
 WORKDIR /gitlab-ci-runner
