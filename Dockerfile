@@ -49,7 +49,7 @@ RUN mkdir -p /root/.ssh
 RUN touch /root/.ssh/known_hosts
 
 # Install the runner
-RUN git clone https://github.com/gitlabhq/gitlab-ci-runner.git /gitlab-ci-runner
+RUN mkdir /gitlab-ci-runner && cd /gitlab-ci-runner && curl -sL https://github.com/gitlabhq/gitlab-ci-runner/archive/v4.0.0.tar.gz | tar xz --strip-components=1
 
 # Install the gems for the runner
 RUN cd /gitlab-ci-runner && gem install bundler && bundle install
