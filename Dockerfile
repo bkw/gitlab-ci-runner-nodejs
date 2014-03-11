@@ -25,7 +25,7 @@ MAINTAINER  Bernhard Weisshuhn "bkw@codingforce.com"
 
 # Update your packages and install the ones that are needed to compile Ruby
 RUN apt-get update -y
-RUN apt-get install -y wget curl gcc libxml2-dev libxslt-dev libcurl4-openssl-dev libreadline6-dev libc6-dev libssl-dev make build-essential zlib1g-dev openssh-server git-core libyaml-dev postfix libicu-dev
+RUN apt-get install -y wget curl gcc libxml2-dev libxslt-dev libcurl4-openssl-dev libreadline6-dev libc6-dev libssl-dev make build-essential zlib1g-dev openssh-server git-core libyaml-dev postfix libicu-dev libfreetype6
 
 # Download Ruby and compile it
 RUN mkdir /tmp/ruby && cd /tmp/ruby && curl -s http://ftp.ruby-lang.org/pub/ruby/ruby-2.0-stable.tar.bz2 | tar xj --strip-components=1
