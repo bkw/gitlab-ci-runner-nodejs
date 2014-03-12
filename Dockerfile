@@ -43,7 +43,8 @@ RUN apt-get install -y \
   libyaml-dev \
   postfix \
   libicu-dev \
-  libfreetype6
+  libfreetype6 \
+  libfontconfig1
 
 # Fix upstart under a virtual host https://github.com/dotcloud/docker/issues/1024
 RUN dpkg-divert --local --rename --add /sbin/initctl
