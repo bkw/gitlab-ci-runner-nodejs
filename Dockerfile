@@ -25,7 +25,25 @@ MAINTAINER  Bernhard Weisshuhn "bkw@codingforce.com"
 
 # Update your packages and install the ones that are needed to compile Ruby
 RUN apt-get update -y
-RUN apt-get install -y wget curl gcc libxml2-dev libxslt-dev libcurl4-openssl-dev libreadline6-dev libc6-dev libssl-dev make build-essential zlib1g-dev openssh-server git-core libyaml-dev postfix libicu-dev libfreetype6
+RUN apt-get install -y \
+  wget \
+  curl \
+  gcc \
+  libxml2-dev \
+  libxslt-dev \
+  libcurl4-openssl-dev \
+  libreadline6-dev \
+  libc6-dev \
+  libssl-dev \
+  make \
+  build-essential \
+  zlib1g-dev \
+  openssh-server \
+  git-core \
+  libyaml-dev \
+  postfix \
+  libicu-dev \
+  libfreetype6
 
 # Fix upstart under a virtual host https://github.com/dotcloud/docker/issues/1024
 RUN dpkg-divert --local --rename --add /sbin/initctl
