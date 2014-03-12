@@ -37,7 +37,7 @@ RUN echo "gem: --no-rdoc --no-ri" >> /usr/local/etc/gemrc
 
 # Fix upstart under a virtual host https://github.com/dotcloud/docker/issues/1024
 RUN dpkg-divert --local --rename --add /sbin/initctl
-RUN ln -s /bin/true /sbin/initctl
+RUN ln -nfs /bin/true /sbin/initctl
 
 # Set the right locale
 RUN echo "LC_ALL=\"en_US.UTF-8\"" >> /etc/default/locale
