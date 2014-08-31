@@ -1,6 +1,6 @@
 # gitlab-ci-runner-nodejs ¯\_(ツ)_/¯
 
-FROM ubuntu:12.04
+FROM ubuntu:12.04.5
 MAINTAINER  Bernhard Weisshuhn "bkw@codingforce.com"
 
 # Based on https://github.com/gitlabhq/gitlab-ci-runner/blob/master/Dockerfile
@@ -47,8 +47,8 @@ RUN apt-get install -y \
   libfontconfig1
 
 # Fix upstart under a virtual host https://github.com/dotcloud/docker/issues/1024
-RUN dpkg-divert --local --rename --add /sbin/initctl
-RUN ln -nfs /bin/true /sbin/initctl
+# RUN dpkg-divert --local --rename --add /sbin/initctl
+# RUN ln -nfs /bin/true /sbin/initctl
 
 # Set the right locale
 RUN echo "LC_ALL=\"en_US.UTF-8\"" >> /etc/default/locale
@@ -68,7 +68,7 @@ RUN mkdir -p /root/.ssh
 RUN touch /root/.ssh/known_hosts
 
 # Install the runner
-RUN mkdir /gitlab-ci-runner && cd /gitlab-ci-runner && curl -sL https://github.com/gitlabhq/gitlab-ci-runner/archive/v4.0.0.tar.gz | tar xz --strip-components=1
+RUN mkdir /gitlab-ci-runner && cd /gitlab-ci-runner && curl -sL https://github.com/gitlabhq/gitlab-ci-runner/archive/v5.0.0.tar.gz | tar xz --strip-components=1
 
 # Install the gems for the runner
 RUN cd /gitlab-ci-runner && gem install bundler && bundle install
