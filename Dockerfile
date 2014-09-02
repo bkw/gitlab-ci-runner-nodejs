@@ -77,9 +77,18 @@ RUN cd /gitlab-ci-runner && gem install bundler && bundle install
 RUN gem install compass sass
 
 # Download nodejs and compile it
-RUN mkdir /tmp/node && cd /tmp/node && curl -s http://nodejs.org/dist/node-latest.tar.gz | tar xz --strip-components=1
-RUN cd /tmp/node  && ./configure && make && make install
-RUN rm -rf /tmp/node
+# RUN mkdir /tmp/node && cd /tmp/node && curl -s http://nodejs.org/dist/node-latest.tar.gz | tar xz --strip-components=1
+# RUN cd /tmp/node  && ./configure && make && make install
+# RUN rm -rf /tmp/node
+
+RUN wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh
+RUN echo '. /.nvm/nvm.sh' >> /root/.bashrc
+RUN cat /root/.bashrc /.nvm/nvm.sh
+
+RUN bash -c '. /.nvm/nvm.sh ; nvm install 0.10'
+RUN bash -c '. /.nvm/nvm.sh ; nvm install 0.11'
+RUN bash -c '. /.nvm/nvm.sh ; nvm alias default 0.10'
+
 
 # update npm and install some basics
 RUN npm update -g npm
